@@ -1,0 +1,49 @@
+org: azhao
+app: serverless-boilerplate
+service: serverless-boilerplate # NOTE: update this with your service name
+
+frameworkVersion: '2'
+
+custom:
+  # Profiles for stages
+  profiles:
+    dev: default
+    prod: default
+  envs:
+    dev:
+      DB_HOST: blah
+    prod:
+      DB_HOST: blah
+
+provider:
+  name: aws
+  # Node version
+  runtime: nodejs14.x
+  # Default stage if `stage` option is not provided
+  stage: dev
+  # AWS profile to use
+  profile: ${self:custom.profiles.${opt:stage, self:provider.stage}}
+  # Environment variables
+  environment:
+    DB_HOST: ${self:custom.envs.${opt:stage, self:provider.stage}.DB_HOST}
+  lambdaHashingVersion: 20201221
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: hello
+          method: get
+          cors:
+            origins:
+              - http://*.example.com
+              - http://example2.com
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: false
