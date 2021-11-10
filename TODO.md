@@ -1,3 +1,1 @@
-- api key
-- serverless dashboard
-- profile
+- throttling config

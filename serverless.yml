@@ -19,6 +19,10 @@ provider:
   name: aws
   # Node version
   runtime: nodejs14.x
+  apiGateway:
+    # API key names
+    apiKeys:
+      - ${self:service}-${opt:stage, self:provider.stage}
   # Default stage if `stage` option is not provided
   stage: dev
   # AWS profile to use
@@ -35,6 +39,7 @@ functions:
       - http:
           path: hello
           method: get
+          private: true
           cors:
             origins:
               - http://*.example.com
