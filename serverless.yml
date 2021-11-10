@@ -4,7 +4,15 @@ service: serverless-boilerplate # NOTE: update this with your service name
 
 frameworkVersion: '2'
 
+plugins:
+  - serverless-api-gateway-throttling
+
 custom:
+  # Configures throttling settings for the API Gateway stage
+  # They apply to all http endpoints, unless specifically overridden
+  apiGatewayThrottling:
+    maxRequestsPerSecond: 1000
+    maxConcurrentRequests: 500
   # Profiles for stages
   profiles:
     dev: default
@@ -14,6 +22,11 @@ custom:
       DB_HOST: blah
     prod:
       DB_HOST: blah
+  allowedOrigins:
+    # This is the allowed origin for preflight request, only '*' or a single domain is allowed
+    # If you have multiple domains, use '*' here and validate the origins in Lambda code instead
+    dev: '*'
+    prod: http://example2.com
 
 provider:
   name: aws
@@ -30,6 +43,7 @@ provider:
   # Environment variables
   environment:
     DB_HOST: ${self:custom.envs.${opt:stage, self:provider.stage}.DB_HOST}
+    STAGE: ${opt:stage, self:provider.stage} 
   lambdaHashingVersion: 20201221
 
 functions:
@@ -39,11 +53,14 @@ functions:
       - http:
           path: hello
           method: get
+          # Override throttling config
+          #throttling:
+          #  maxRequestsPerSecond: 2000
+          #  maxConcurrentRequests: 1000
           private: true
+          # Preflight requests
           cors:
-            origins:
-              - http://*.example.com
-              - http://example2.com
+            origins: ${self:custom.allowedOrigins.${opt:stage, self:provider.stage}}
             headers:
               - Content-Type
               - X-Amz-Date

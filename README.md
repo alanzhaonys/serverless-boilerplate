@@ -69,6 +69,12 @@ After successful deployment, you can invoke the deployed function by using the f
 serverless invoke --function hello
 ```
 
+or 
+
+```bash
+serverless invoke --stage prod --function hello
+```
+
 Which should result in response similar to the following:
 
 ```json
