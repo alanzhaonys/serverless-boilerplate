@@ -110,4 +110,4 @@ Which should result in response similar to the following:
 
 ### Dashboard
 
-Run `serverless login` to have CLI login into default browser, then run `serverless` to configure the app. Once done, deploy the app and it will show up in your Serverless Dashboard
+Run `serverless login` to have CLI log into default browser, then run `serverless` to configure the app. Once done, deploy the app and it will show up in your Serverless Dashboard.
