@@ -1,0 +1,32 @@
+{
+  "name": "serverless-boilerplate",
+  "version": "1.0.0",
+  "description": "Serverless boilerplate to start an API endpoint powered by Lambda Node.js and APIGateway. It supports dev and prod environments, API key, throttling configs, multiple allowed origins and Serverless Dashboard.",
+  "main": "handler.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "serverless-api-gateway-throttling": "^1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alanzhaonys/serverless-boilerplate.git"
+  },
+  "keywords": [
+    "AWS",
+    "Lambda",
+    "APIGateway",
+    "Serverless"
+  ],
+  "author": "Alan Zhao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alanzhaonys/serverless-boilerplate/issues"
+  },
+  "homepage": "https://github.com/alanzhaonys/serverless-boilerplate#readme"
+}
