@@ -51,7 +51,7 @@ resources: 12
 api keys:
   None
 endpoints:
-  GET - https://ev6zdi25bf.execute-api.us-east-1.amazonaws.com/dev/hello
+  GET - https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/dev/hello
 functions:
   hello: serverless-boilerplate-dev-hello
 layers:
