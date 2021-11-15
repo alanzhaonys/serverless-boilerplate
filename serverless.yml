@@ -45,6 +45,14 @@ provider:
     DB_HOST: ${self:custom.envs.${opt:stage, self:provider.stage}.DB_HOST}
     STAGE: ${opt:stage, self:provider.stage} 
   lambdaHashingVersion: 20201221
+  #role: arn:aws:iam::xxxxxxxxxx:role/your-custom-lambda-role
+  #vpc:
+  #  securityGroupIds:
+  #    - sg-xxxxxxxxxx
+  #  subnetIds:
+  #    - subnet-xxxxxxxxxx
+  #    - subnet-xxxxxxxxxx
+  #    - subnet-xxxxxxxxxx
 
 functions:
   hello:
