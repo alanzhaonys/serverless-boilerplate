@@ -1,6 +1,6 @@
-org: azhao
-app: serverless-boilerplate
-service: serverless-boilerplate # NOTE: update this with your service name
+org: azhao # Your Serverless username
+app: serverless-boilerplate # Your Serverless app name
+service: serverless-boilerplate # Your Serverless service name
 
 frameworkVersion: '2'
 
