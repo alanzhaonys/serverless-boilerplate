@@ -128,3 +128,11 @@ AWS Profile needs to have limited permissions below(or better to use IAM policie
 - AWSCloudFormationFullAccess
 - AWSLambda_FullAccess
 - CloudWatchLogsFullAccess
+
+### Lambda Execution Role
+If you have a custom Lambda role, make sure the role has permissions below:
+- AWSLambdaBasicExecutionRole
+- AWSLambdaRole
+
+### If Lambda belongs to a VPC:
+- AmazonVPCFullAccess
