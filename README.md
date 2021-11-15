@@ -15,6 +15,14 @@ npm update -g serverless
 
 In order to deploy the example, you need to run the following command:
 
+Install packages:
+
+```
+$ npm install
+```
+
+Deploy
+
 ```
 $ serverless deploy
 ```
@@ -111,3 +119,12 @@ Which should result in response similar to the following:
 ### Dashboard
 
 Run `serverless login` to have CLI log into default browser, then run `serverless` to configure the app. Once done, deploy the app and it will show up in your Serverless Dashboard.
+
+### AWS Profile
+AWS Profile needs to have limited permissions below(or better to use IAM policies):
+- IAMFullAccess
+- AmazonS3FullAccess
+- AmazonAPIGatewayAdministrator
+- AWSCloudFormationFullAccess
+- AWSLambda_FullAccess
+- CloudWatchLogsFullAccess
